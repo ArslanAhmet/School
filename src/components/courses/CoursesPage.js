@@ -5,6 +5,7 @@ import * as authorActions from "../../redux/actions/authorActions";
 import PropTypes from "prop-types";
 import { bindActionCreators } from "redux";
 import CourseList from './CourseList';
+import Spinner from "../common/Spinner";
 
 class CoursesPage extends React.Component {
 
@@ -31,12 +32,14 @@ class CoursesPage extends React.Component {
         return (
             <>
                 <h2>Courses</h2>
+                <Spinner />
                 <CourseList courses={this.props.courses} />
                 {
                     this.props.courses.map(course => (
                         <div key={course.title}>{course.title}</div>
                     ))
                 }
+
             </>);
     }
 }
